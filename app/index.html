@@ -2,37 +2,21 @@
 <html ng-app="exerciseApp">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Angular Exercise 2</title>
+    <title>Angular Exercise 3</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="text/javascript" href="bower_components/angular-resource/angular-resource.js>
 </head>
 <body>
-<div ng-controller="BlogPostCtrl as blogPosts">
-    <table class="table table-striped table-bordered">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Pets</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tbody>
-        <tr ng-repeat="x in blogPosts.posts">
-            <th>{{x.id}}</th>
-            <th>{{x.name}}</th>
-            <th>{{x.pets}}</th>
-        </tr>
-        </tbody>
-    </table>
+<div ng-controller="AnnouncementListCtrl as announcementList">
+    <tr ng-repeat="x in announcementList.posts">
+        <th>{{x.id}}</th>
+        <th>{{x.title}}</th>
+        <th>{{x.description}}</th>
+    </tr>
 </div>
-
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-mocks/angular-mocks.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
 <script src="app.js"></script>
-<script src="BlogPostCtrl.js"></script>
-<script src="PostDAO.js"></script>
+<script src="AnnouncementListCtrl.js"></script>
+<script src="AnnouncementDAO.js"></script>
 </body>
 </html>
-        
