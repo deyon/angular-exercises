@@ -1,18 +1,15 @@
 (function () {
     'use strict';
-    function ReservationCtrl($filter,$scope) {
+    function ReservationCtrl($scope) {
         var ctrl = this;
-
         ctrl.list = {
-            selectRefreshment: {value: ''},
-            selectZone: {value: ''}
+            selectRefreshment: '',
+            selectZone: ''
         };
-
         ctrl.refreshments = [
             {value: 1, status: 'yes'},
             {value: 2, status: 'no'}
         ];
-
         ctrl.zones = [
             {value: 1, color: 'White'},
             {value: 2, color: 'Blue'},
@@ -20,15 +17,12 @@
             {value: 4, color: 'Green'},
             {value: 5, color: 'Black'}
         ];
-
         ctrl.isSummary = false;
         this.showSummary = function () {
             ctrl.isSummary = !ctrl.isSummary;
         };
-
         ctrl.formData = {};
-
-        this.save = function(){
+        this.save = function () {
             ctrl.formData = {
                 firstName: ctrl.list.firstName,
                 lastName: ctrl.list.lastName,
@@ -39,9 +33,13 @@
                 date: ctrl.list.date,
                 comments: ctrl.list.comments
             };
-        }
+        };
+        $scope.$watch(function () {
+            return ctrl.list;
+        }, function () {
+            ctrl.save();
+        }, true);
     }
-
     var module = angular.module('exerciseApp', ["xeditable"]);
-    module.controller('ReservationCtrl', ['$filter','$scope', ReservationCtrl]);
+    module.controller('ReservationCtrl', ['$scope', ReservationCtrl]);
 })();
